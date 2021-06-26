@@ -4,6 +4,7 @@ import { Link, useHistory } from 'react-router-dom'
 import illustrationImg from '../assets/images/illustration.svg'
 import logoImg from '../assets/images/logo.svg';
 
+import { Theme } from '../components/Theme';
 import { Button } from '../components/Button';
 import { SignOut } from '../components/SignOut';
 import { database } from '../services/firebase';
@@ -41,6 +42,7 @@ export function NewRoom() {
         <p>Tire as dúvidas da sua audiência em tempo-real</p>
       </aside>
       <main>
+        <Theme />
         <div className="main-content">
           <img src={logoImg} alt="Letmeask" />
           <h2>Criar uma nova sala</h2>

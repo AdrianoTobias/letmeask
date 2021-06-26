@@ -5,10 +5,12 @@ import deleteImg from '../assets/images/delete.svg';
 import checkImg from '../assets/images/check.svg';
 import answerImg from '../assets/images/answer.svg';
 
+import { Theme } from '../components/Theme';
 import { SignOut } from '../components/SignOut';
 import { Button } from '../components/Button';
 import { Question } from '../components/Question';
 import { RoomCode } from '../components/RoomCode';
+
 import { useAuth } from '../hooks/useAuth';
 import { useRoom } from '../hooks/useRoom';
 import { database } from '../services/firebase';
@@ -58,15 +60,22 @@ export function AdminRoom() {
       <header>
         <div className="content">
           <img src={logoImg} alt="Letmeask" onClick={() => history.push('/')}/>
-            <RoomCode code={roomId} />
+          <div id="themeComponent">
+            <Theme />
+          </div>
+          <div id="signOutComponent">
             {user && <SignOut />}
+          </div>
+        </div>
+        <div className="room-title">
+          <h1>Sala {title}</h1>
         </div>
       </header>
 
       <main>
-        <div className="room-title">
-          <h1>Sala {title}</h1>
-          { questions.length > 0 && <span>{questions.length} pergunta(s)</span> }
+        <div className="room-info">
+          <RoomCode code={roomId} />
+          { questions.length > 0 && <span id="totalQuestions">{questions.length} pergunta(s)</span> }
           <Button isOutlined onClick={handleEndRoom}>Encerrar sala</Button>
         </div>
 

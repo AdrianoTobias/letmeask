@@ -1,0 +1,12 @@
+.change-theme {
+    max-height: 40px;
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    transition: filter 0.2s;
+
+    &:hover {
+      filter: brightness(0.9);
+    }
+  }

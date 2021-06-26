@@ -7,15 +7,19 @@ import googleIconImg from '../assets/images/google-icon.svg';
 
 import { database } from '../services/firebase';
 
+import { Theme } from '../components/Theme';
+import { SignOut } from '../components/SignOut';
 import { Button } from '../components/Button';
+
 import { useAuth } from '../hooks/useAuth';
 
 import '../styles/auth.scss';
-import { SignOut } from '../components/SignOut';
 
 export function Home() {
   const history = useHistory();
   const { user, signInWithGoogle } = useAuth();
+
+
   const [roomCode, setRoomCode] = useState('');
 
   async function handleCreateRoom() {
@@ -54,8 +58,9 @@ export function Home() {
         <img src={illustrationImg} alt="Ilustração simbolizando perguntas e respostas" />
         <strong>Crie salas de Q&amp;A ao vivo</strong>
         <p>Tire as dúvidas da sua audiência em tempo real</p>
-      </aside>
+      </aside> 
       <main>
+        <Theme />
         <div className="main-content">
           <img src={logoImg} alt="Letmeask" />
           <button onClick={handleCreateRoom} className="create-room">

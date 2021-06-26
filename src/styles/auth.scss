@@ -4,7 +4,7 @@
   height: 100vh;
 
   aside {
-    flex: 7;
+    flex: 8;
 
     background: #835afd;
     color: #FFF;
@@ -34,13 +34,14 @@
   }
 
   main {
-    flex: 8;
+    flex: 7;
 
-    padding: 0 32px;
+    padding: 0 32px 128px 32px;
 
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    flex-direction: column;
   }
 
   .main-content {
