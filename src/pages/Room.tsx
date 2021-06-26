@@ -22,13 +22,13 @@ type RoomParams = {
 }
 
 export function Room() {
-  const { user } = useAuth();
+  const { user, signInWithGoogle } = useAuth();
   const history = useHistory();
   const params = useParams<RoomParams>();
   const [newQuestion, setNewQuestion] = useState('');
   const roomId = params.id;
 
-  const { title, questions } = useRoom(roomId)
+  const { title, questions } = useRoom(roomId);
 
   async function handleSendQuestion(event: FormEvent) {
     event.preventDefault();
@@ -64,6 +64,14 @@ export function Room() {
         authorId: user?.id,
       })
     }
+  }
+
+  async function handleLogIn() {
+    if (!user) {
+      await signInWithGoogle();
+    }
+
+    history.push(`/rooms/${roomId}`);
   }
 
   return (
