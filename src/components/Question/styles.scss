@@ -74,9 +74,15 @@
         }
       }
 
-      &:hover {
+      &:not(:disabled):hover {
         filter: brightness(0.7);
       }
+    
+      &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+
     }
   }
 }

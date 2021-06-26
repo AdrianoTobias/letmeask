@@ -57,6 +57,11 @@ export function Room() {
   }
 
   async function handleLikeQuestion(questionId: string, likeId: string | undefined) {
+    if (!user) {
+      alert('You must be logged in to interact.');
+      return;
+    }
+
     if (likeId) {
       await database.ref(`rooms/${roomId}/questions/${questionId}/likes/${likeId}`).remove()
     } else {
@@ -102,6 +107,7 @@ export function Room() {
             placeholder="O que você quer perguntar?"
             onChange={event => setNewQuestion(event.target.value)}
             value={newQuestion}
+            disabled={!user}
           />
 
           <div className="form-footer">
@@ -132,6 +138,7 @@ export function Room() {
                     className={`like-button ${question.likeId ? 'liked' : ''}`}
                     type="button"
                     aria-label="Marcar como gostei"
+                    disabled={!user}
                     onClick={() => handleLikeQuestion(question.id, question.likeId)}
                   >
                     { question.likeCount > 0 && <span>{question.likeCount}</span> }
