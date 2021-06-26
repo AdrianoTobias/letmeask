@@ -69,7 +69,7 @@ export function Room() {
         <div className="content">
           <img src={logoImg} alt="Letmeask" onClick={() => history.push('/')}/>
           <RoomCode code={roomId} />
-          <SignOut />
+          {user && <SignOut />}
         </div>
       </header>
 
