@@ -11,6 +11,7 @@ import { Button } from '../components/Button';
 import { useAuth } from '../hooks/useAuth';
 
 import '../styles/auth.scss';
+import { SignOut } from '../components/SignOut';
 
 export function Home() {
   const history = useHistory();
@@ -73,6 +74,7 @@ export function Home() {
               Entrar na sala
             </Button>
           </form>
+          {user && <footer> <SignOut /> </footer>}
         </div>
       </main>
     </div>

@@ -5,6 +5,7 @@ import deleteImg from '../assets/images/delete.svg';
 import checkImg from '../assets/images/check.svg';
 import answerImg from '../assets/images/answer.svg';
 
+import { SignOut } from '../components/SignOut';
 import { Button } from '../components/Button';
 import { Question } from '../components/Question';
 import { RoomCode } from '../components/RoomCode';
@@ -56,11 +57,9 @@ export function AdminRoom() {
     <div id="page-room">
       <header>
         <div className="content">
-          <img src={logoImg} alt="Letmeask" />
-          <div>
+          <img src={logoImg} alt="Letmeask" onClick={() => history.push('/')}/>
             <RoomCode code={roomId} />
-            <Button isOutlined onClick={handleEndRoom}>Encerrar sala</Button>
-          </div>
+            <SignOut />
         </div>
       </header>
 
@@ -68,6 +67,7 @@ export function AdminRoom() {
         <div className="room-title">
           <h1>Sala {title}</h1>
           { questions.length > 0 && <span>{questions.length} pergunta(s)</span> }
+          <Button isOutlined onClick={handleEndRoom}>Encerrar sala</Button>
         </div>
 
         <div className="question-list">

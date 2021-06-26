@@ -12,15 +12,12 @@
 
       > img {
         max-height: 45px;
+        cursor: pointer;
       }
 
       > div {
         display: flex;
         gap: 16px;
-
-        button {
-          height: 40px;
-        }
       }
     }
   }
@@ -32,12 +29,17 @@
     .room-title {
       margin: 32px 0 24px;
       display: flex;
+      justify-content: space-between;
       align-items: center;
 
       h1 {
         font-family: 'Poppins', sans-serif;
         font-size: 24px;
         color: #29292e;
+      }
+
+      button {
+        height: 40px;
       }
 
       span {
